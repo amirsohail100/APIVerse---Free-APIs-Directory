@@ -1,13 +1,30 @@
 const paidApis = [
-  { name: "Stripe API", category: "Payments", desc: "Online payment processing suite for internet businesses with webhooks.", format: "sk_test_51Mz...XyZ123", keyUrl: "https://dashboard.stripe.com/register" },
-  { name: "Twilio SMS & Voice", category: "Communication", desc: "Programmable SMS, voice calls, WhatsApp messaging, and verification.", format: "AC3100...2284729104", keyUrl: "https://www.twilio.com/try-twilio" },
-  { name: "Google Maps Platform", category: "Maps", desc: "World-class mapping, routing, geocoding, and places API for enterprise apps.", format: "AIzaSyD-xXxXxXxXxXx", keyUrl: "https://console.cloud.google.com/google/maps-apis" },
-  { name: "Fixer Currency API", category: "Finance", desc: "Foreign exchange rates and currency conversion data with official feeds.", format: "fixer_live_key_993021", keyUrl: "https://fixer.io/" },
-  { name: "SendGrid Email API", category: "Email", desc: "Cloud-based transactional and marketing email delivery infrastructure.", format: "SG.xxxxxxxxxxxxxxxxxx", keyUrl: "https://signup.sendgrid.com/" },
-  { name: "Razorpay Payment API", category: "Payments", desc: "Accept payments, process payouts, and manage billing for global businesses.", format: "rzp_test_1DP5mmOlB5G5ag", keyUrl: "https://dashboard.razorpay.com/" },
-  { name: "Supabase Database API", category: "Database", desc: "Open-source Firebase alternative with auto-generated Postgres REST APIs.", format: "eyJhbGciOiJIUzI1NiIsInR...", keyUrl: "https://supabase.com/dashboard" },
-  { name: "Algolia Search API", category: "Search Engine", desc: "Ultra-fast hosted search engine API for e-commerce and real-time apps.", format: "algolia_admin_key_32chars", keyUrl: "https://www.algolia.com/users/sign_up" }
+  { name: "Stripe API", category: "Payments", desc: "Online payment processing suite for internet businesses with webhooks.", key: "sk_test_51Mz9XXK89sL001239988", keyUrl: "https://dashboard.stripe.com/register" },
+  { name: "Twilio SMS & Voice", category: "Communication", desc: "Programmable SMS, voice calls, WhatsApp messaging, and verification.", key: "AC310029384910293849102938", keyUrl: "https://www.twilio.com/try-twilio" },
+  { name: "Google Maps Platform", category: "Maps", desc: "World-class mapping, routing, geocoding, and places API for enterprise apps.", key: "AIzaSyD9x8c7v6b5n4m3L2k1J0", keyUrl: "https://console.cloud.google.com/google/maps-apis" },
+  { name: "Fixer Currency API", category: "Finance", desc: "Foreign exchange rates and currency conversion data with official feeds.", key: "fixer_live_key_993021882", keyUrl: "https://fixer.io/" },
+  { name: "SendGrid Email API", category: "Email", desc: "Cloud-based transactional and marketing email delivery infrastructure.", key: "SG.x98y7z6w5v4u3t2s1r0.Q1W2E3R4", keyUrl: "https://signup.sendgrid.com/" },
+  { name: "Razorpay Payment API", category: "Payments", desc: "Accept payments, process payouts, and manage billing for global businesses.", key: "rzp_test_1DP5mmOlB5G5ag88", keyUrl: "https://dashboard.razorpay.com/" }
 ];
+
+function maskKey(key) {
+  if(key.length <= 8) return key;
+  return key.substring(0, 5) + "••••••••" + key.substring(key.length - 4);
+}
+
+function toggleEye(index, fullKey) {
+  const elem = document.getElementById(`key-display-${index}`);
+  const eyeBtn = document.getElementById(`eye-btn-${index}`);
+  if (elem.getAttribute('data-shown') === 'false') {
+    elem.innerText = fullKey;
+    elem.setAttribute('data-shown', 'true');
+    eyeBtn.innerText = '🙈';
+  } else {
+    elem.innerText = maskKey(fullKey);
+    elem.setAttribute('data-shown', 'false');
+    eyeBtn.innerText = '👁️';
+  }
+}
 
 function showToast(msg) {
   let toast = document.getElementById('toast');
@@ -24,7 +41,7 @@ function showToast(msg) {
 
 function copyToClipboard(text) {
   navigator.clipboard.writeText(text);
-  showToast(`Copied Key/Format: ${text}`);
+  showToast(`Copied Key: ${text}`);
 }
 
 function renderAPIs(data) {
@@ -36,7 +53,7 @@ function renderAPIs(data) {
     return;
   }
 
-  data.forEach(api => {
+  data.forEach((api, index) => {
     grid.innerHTML += `
       <div class="api-card">
         <div>
@@ -46,8 +63,11 @@ function renderAPIs(data) {
           </div>
           <p class="api-desc">${api.desc}</p>
           <div class="key-box">
-            <span>🔑 ${api.format}</span>
-            <button class="btn-copy" onclick="copyToClipboard('${api.format}')">📋 Copy</button>
+            <div class="key-text-wrapper">
+              <button id="eye-btn-${index}" class="btn-eye" onclick="toggleEye(${index}, '${api.key}')">👁️</button>
+              <span id="key-display-${index}" class="key-display" data-shown="false">${maskKey(api.key)}</span>
+            </div>
+            <button class="btn-copy" onclick="copyToClipboard('${api.key}')">📋 Copy</button>
           </div>
         </div>
         <div class="card-footer">
