@@ -27,7 +27,6 @@ body {
   position: relative;
 }
 
-/* Background Canvas */
 #bg-canvas {
   position: fixed;
   top: 0;
@@ -38,7 +37,6 @@ body {
   pointer-events: none;
 }
 
-/* Glass Navigation Bar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -81,7 +79,6 @@ body {
   text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
 }
 
-/* Container & Search System */
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -127,10 +124,9 @@ body {
   box-shadow: 0 0 25px rgba(0, 242, 254, 0.3);
 }
 
-/* 3D Glassmorphic Cards Grid */
 .api-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 2rem;
   perspective: 1000px;
 }
@@ -145,29 +141,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transform-style: preserve-3d;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  overflow: hidden;
-}
-
-.api-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-  transition: 0.5s;
-}
-
-.api-card:hover::before {
-  left: 100%;
 }
 
 .api-card:hover {
-  transform: translateY(-10px) rotateX(4deg) rotateY(-4deg);
+  transform: translateY(-8px);
   border-color: var(--glass-hover-border);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 242, 254, 0.2);
 }
@@ -180,7 +159,7 @@ body {
 }
 
 .api-title {
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: #fff;
 }
@@ -191,7 +170,6 @@ body {
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .badge-free { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
@@ -201,63 +179,79 @@ body {
 .api-desc {
   color: var(--text-muted);
   font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* Key Preview Box */
+.key-box {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px dashed var(--glass-border);
+  border-radius: 10px;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--primary-glow);
+}
+
+.btn-copy {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: background 0.2s;
+}
+
+.btn-copy:hover {
+  background: var(--primary-glow);
+  color: #000;
 }
 
 .card-footer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: 0.5rem;
   margin-top: auto;
   padding-top: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .btn-action {
-  padding: 0.7rem 1.4rem;
-  border-radius: 12px;
+  flex: 1;
+  text-align: center;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
   background: linear-gradient(135deg, var(--secondary-glow), var(--accent-purple));
   color: #fff;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   border: none;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
 }
 
 .btn-action:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(127, 0, 255, 0.5);
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(127, 0, 255, 0.4);
 }
 
-/* Landing Page Hero */
-.hero {
-  text-align: center;
-  padding: 6rem 1rem 3rem 1rem;
-}
-
-.hero h1 {
-  font-size: 4rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-}
-
-.hero p {
-  font-size: 1.25rem;
-  color: var(--text-muted);
-  max-width: 700px;
-  margin: 0 auto 2.5rem auto;
-}
-
-.hero-btns {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #10b981;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  display: none;
+  z-index: 1000;
 }
