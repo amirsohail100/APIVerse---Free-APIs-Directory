@@ -8,18 +8,24 @@
 </head>
 <body>
 
+  <!-- Background Particle Animation Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
   <nav class="navbar">
     <a href="index.html" class="logo">🌐 APIVerse</a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="pages/free-apis.html">Free APIs</a></li>
-      <li><a href="pages/paid-apis.html">Paid APIs</a></li>
-      <li><a href="pages/genai-apis.html">GenAI APIs</a></li>
-    </ul>
+    <div class="nav-controls">
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="pages/free-apis.html">Free APIs</a></li>
+        <li><a href="pages/paid-apis.html">Paid APIs</a></li>
+        <li><a href="pages/genai-apis.html">GenAI APIs</a></li>
+      </ul>
+      <button id="themeToggleBtn" class="theme-toggle-btn">🌙</button>
+    </div>
   </nav>
 
   <section class="hero">
-    <h1>Explore the Entire Universe of <br><span style="background: linear-gradient(135deg, #00f2fe, #7f00ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">APIs in 3D</span></h1>
+    <h1>Explore the Entire Universe of <br><span style="background: linear-gradient(135deg, var(--primary-glow), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">APIs in 3D</span></h1>
     <p>Discover hundreds of Free, Premium, and AI APIs with instant direct access, real-time search, and interactive documentation links.</p>
     <div class="hero-btns">
       <a href="pages/free-apis.html" class="btn-action">Explore Free APIs</a>
@@ -73,7 +79,6 @@
     </div>
   </div>
 
-  <!-- Version Badge at Bottom Right Corner -->
   <div class="version-badge">v1.0.2</div>
 
   <script src="js/main.js"></script>
