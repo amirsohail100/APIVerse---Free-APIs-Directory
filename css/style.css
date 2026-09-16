@@ -331,3 +331,51 @@ body {
   display: none;
   z-index: 1000;
 }
+/* Endpoint & Key Box UI */
+.key-box {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  border-radius: 10px;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.key-text-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow: hidden;
+  flex: 1;
+}
+
+.endpoint-display {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.82rem;
+  color: var(--primary-glow);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  user-select: all;
+}
+
+.btn-copy {
+  background: linear-gradient(135deg, rgba(0, 242, 254, 0.25), rgba(127, 0, 255, 0.25));
+  border: 1px solid rgba(0, 242, 254, 0.5);
+  color: #fff;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-copy:hover {
+  background: linear-gradient(135deg, var(--primary-glow), var(--accent-purple));
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.5);
+}
