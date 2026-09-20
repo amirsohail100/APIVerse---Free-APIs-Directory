@@ -13,6 +13,19 @@ APIVerse is a modern, high-performance web application designed for developers t
 - **🎨 Glassmorphism & 3D UI:** Interactive 3D tilt cards, dynamic glowing borders, blur backdrops, and interactive particle background animations.
 
 ---
+```js
+{ name: "Naya API", category: "Data", desc: "Iska kaam kya hai.", url: "https://...", tag: "Free tier" }
+```
+
+## Shortlist kaise kaam karti hai
+`free-apis.html` page par har card ke star (⭐) icon par click karne se woh API browser ke `localStorage` mein save ho jaati hai (server ki zaroorat nahi). Neeche-right corner mein "Shortlist" button se poori list dekh sakte hain aur wahin se remove bhi kar sakte hain.
+
+## Aage kya jod sakte hain
+- Backend jodkar shortlist ko account ke saath sync karna
+- Har free API ke liye "Try it live" console (fetch karke response dikhana)
+- Dark/Light theme toggle
+
+---
 
 ## 🛠️ Tech Stack
 
