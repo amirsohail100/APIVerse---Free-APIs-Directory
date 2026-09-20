@@ -1,45 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Generative AI APIs - APIVerse</title>
-  <link rel="stylesheet" href="../css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Model APIs — API Verse</title>
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-  <!-- Background Canvas Animation -->
-  <canvas id="bg-canvas"></canvas>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
 
-  <nav class="navbar">
-    <a href="../index.html" class="logo">🌐 APIVerse</a>
-    <div class="nav-controls">
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="free-apis.html">Free APIs</a></li>
-        <li><a href="paid-apis.html">Paid APIs</a></li>
-        <li><a href="genai-apis.html" class="active">GenAI APIs</a></li>
-      </ul>
-      <button id="themeToggleBtn" class="theme-toggle-btn">🌙 Dark</button>
-    </div>
-  </nav>
+<nav class="navbar">
+  <div class="brand"><span class="brand-mark"></span> API Verse</div>
+  <div class="nav-links">
+    <a href="/index.html">Home</a>
+    <a href="free-apis.html">Free APIs</a>
+    <a href="paid-apis.html">Paid APIs</a>
+    <a href="genai-apis.html" class="active">AI Model APIs</a>
+  </div>
+</nav>
 
-  <div class="container">
-    <div class="page-header">
-      <h1>Generative AI APIs</h1>
-      <p style="color: var(--text-muted);">LLMs, Image Synthesis, Speech, and Vision APIs with instant base endpoint copying.</p>
-    </div>
-
-    <div class="search-box">
-      <input type="text" id="searchInput" class="search-input" placeholder="Search AI models & services...">
-    </div>
-
-    <div id="apiGrid" class="api-grid"></div>
+<section class="section" style="padding-top:50px;">
+  <div class="section-head">
+    <h2>AI Model APIs</h2>
+    <p>OpenAI, Mistral, Claude, Gemini aur baaki providers ke API key page ka seedha link — sign in karte hi aap unke dashboard mein honge, kahin bhatakna nahi padega.</p>
   </div>
 
-  <div class="version-badge">v0.0.1</div>
+  <div class="ai-grid" id="aiGrid"></div>
+</section>
 
-  <script src="../js/main.js"></script>
-  <script src="../js/genai-apis.js"></script>
+<footer>
+  <span>&copy; 2026 API Nexus</span>
+  <span>Har button seedhe respective company ke official sign-in / API-key page par le jaata hai.</span>
+</footer>
+
+<script src="/js/genai-apis.js"></script>
+<script src="/js/main.js"></script>
 </body>
 </html>
