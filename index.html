@@ -1,86 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>APIVerse - World's Largest API Ecosystem</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APIVerse - Interactive 3D Glassmorphic API Hub</title>
+<link rel="icon" type="image/svg+xml" href="/assets/icon.svg">
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-  <!-- Background Particle Animation Canvas -->
-  <canvas id="bg-canvas"></canvas>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
 
-  <nav class="navbar">
-    <a href="index.html" class="logo">🌐 APIVerse</a>
-    <div class="nav-controls">
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="pages/free-apis.html">Free APIs</a></li>
-        <li><a href="pages/paid-apis.html">Paid APIs</a></li>
-        <li><a href="pages/genai-apis.html">GenAI APIs</a></li>
-      </ul>
-      <button id="themeToggleBtn" class="theme-toggle-btn">🌙</button>
-    </div>
-  </nav>
+<nav class="navbar">
+  <div class="brand"><span class="brand-mark"></span> API Verse</div>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="pages/free-apis.html">Free APIs</a>
+    <a href="pages/paid-apis.html">Paid APIs</a>
+    <a href="pages/genai-apis.html">AI Model APIs</a>
+  </div>
+</nav>
 
-  <section class="hero">
-    <h1>Explore the Entire Universe of <br><span style="background: linear-gradient(135deg, var(--primary-glow), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">APIs in 3D</span></h1>
-    <p>Discover hundreds of Free, Premium, and AI APIs with instant direct access, real-time search, and interactive documentation links.</p>
-    <div class="hero-btns">
-      <a href="pages/free-apis.html" class="btn-action">Explore Free APIs</a>
-      <a href="pages/genai-apis.html" class="btn-action" style="background: linear-gradient(135deg, #a855f7, #7f00ff);">GenAI Portal 🤖</a>
-    </div>
-  </section>
-
-  <div class="container">
-    <div class="page-header">
-      <h2>Featured API Categories</h2>
-    </div>
-    <div class="api-grid">
-      <div class="api-card">
-        <div>
-          <div class="card-header">
-            <span class="api-title">🆓 Completely Free APIs</span>
-            <span class="badge badge-free">Free</span>
-          </div>
-          <p class="api-desc">Access open APIs for Weather, News, Finance, Sports, and Public Open Data without payment barriers.</p>
-        </div>
-        <div class="card-footer">
-          <a href="pages/free-apis.html" class="btn-action">Browse Free Hub →</a>
-        </div>
-      </div>
-
-      <div class="api-card">
-        <div>
-          <div class="card-header">
-            <span class="api-title">💳 Paid & Freemium</span>
-            <span class="badge badge-paid">Key Required</span>
-          </div>
-          <p class="api-desc">Enterprise APIs for Stripe, Twilio, Maps, and Cloud data. Instant redirection to generate API Keys.</p>
-        </div>
-        <div class="card-footer">
-          <a href="pages/paid-apis.html" class="btn-action">Browse Paid Hub →</a>
-        </div>
-      </div>
-
-      <div class="api-card">
-        <div>
-          <div class="card-header">
-            <span class="api-title">🤖 Generative AI APIs</span>
-            <span class="badge badge-genai">GenAI</span>
-          </div>
-          <p class="api-desc">State-of-the-art APIs for LLMs, Image Synthesis, Speech, and Vision from OpenAI, Anthropic, and Hugging Face.</p>
-        </div>
-        <div class="card-footer">
-          <a href="pages/genai-apis.html" class="btn-action">Browse GenAI Hub →</a>
-        </div>
-      </div>
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">2000+ APIs • Ek hi jagah</div>
+    <h1>Har API jo aapko <span>chahiye</span>, dhoondhne ki jagah</h1>
+    <p class="lead">Free APIs search karein aur shortlist banayein, paid APIs seedhe unki website se lein, aur AI model APIs (OpenAI, Mistral, Claude...) ke liye seedhe sign-in page par pahunchein — bina bhatke.</p>
+    <div class="hero-ctas">
+      <a href="pages/free-apis.html" class="btn btn-primary">Free APIs explore karein</a>
+      <a href="pages/genai-apis.html" class="btn btn-outline">AI Model API lein</a>
     </div>
   </div>
+  <div class="scene">
+    <div class="scene-core"></div>
+    <div class="orbit orbit-1"></div>
+    <div class="orbit orbit-2"></div>
+    <div class="orbit orbit-3"></div>
+  </div>
+</section>
 
-  <div class="version-badge">v1.0.2</div>
+<div class="stats-row">
+  <div class="stat-card"><div class="num">20+</div><div class="label">Free APIs listed</div></div>
+  <div class="stat-card"><div class="num">10+</div><div class="label">Paid APIs listed</div></div>
+  <div class="stat-card"><div class="num">10+</div><div class="label">AI model providers</div></div>
+</div>
 
-  <script src="js/main.js"></script>
+<section class="section">
+  <div class="section-head">
+    <h2>Teen jagah, teen kaam</h2>
+    <p>Aapki zaroorat ke hisaab se seedhe sahi page par jaayein.</p>
+  </div>
+  <div class="path-grid">
+    <a href="pages/free-apis.html" class="path-card">
+      <div class="path-icon" style="background: rgba(63,214,197,0.15);">🧭</div>
+      <h3>Free APIs</h3>
+      <p>Search karein, category se filter karein, aur apni pasand ki APIs ko star laga kar shortlist mein save karein.</p>
+      <span class="go">Explore karein &rarr;</span>
+    </a>
+    <a href="pages/paid-apis.html" class="path-card">
+      <div class="path-icon" style="background: rgba(242,166,90,0.15);">💳</div>
+      <h3>Paid APIs</h3>
+      <p>Google Maps, Twilio, Stripe jaisi production-grade APIs — button click karke seedhe unki website par payment karein.</p>
+      <span class="go">Dekhein &rarr;</span>
+    </a>
+    <a href="pages/genai-apis.html" class="path-card">
+      <div class="path-icon" style="background: rgba(232,96,122,0.15);">🤖</div>
+      <h3>AI Model APIs</h3>
+      <p>OpenAI, Mistral, Gemini, Claude aur aur bhi — seedhe unke API-key page par sign in karein, bhatakna nahi padega.</p>
+      <span class="go">API key lein &rarr;</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span>&copy; 2026 API Nexus</span>
+  <span>Ek developer directory — sabhi trademarks unke maalikon ke hain.</span>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
