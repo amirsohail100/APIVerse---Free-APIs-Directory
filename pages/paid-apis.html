@@ -1,45 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paid & Freemium APIs - APIVerse</title>
-  <link rel="stylesheet" href="../css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paid APIs — API Verse</title>
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-  <!-- Background Canvas Animation -->
-  <canvas id="bg-canvas"></canvas>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
 
-  <nav class="navbar">
-    <a href="../index.html" class="logo">🌐 APIVerse</a>
-    <div class="nav-controls">
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="free-apis.html">Free APIs</a></li>
-        <li><a href="paid-apis.html" class="active">Paid APIs</a></li>
-        <li><a href="genai-apis.html">GenAI APIs</a></li>
-      </ul>
-      <button id="themeToggleBtn" class="theme-toggle-btn">🌙 Dark</button>
-    </div>
-  </nav>
+<nav class="navbar">
+  <div class="brand"><span class="brand-mark"></span> API Verse</div>
+  <div class="nav-links">
+    <a href="/index.html">Home</a>
+    <a href="free-apis.html">Free APIs</a>
+    <a href="paid-apis.html" class="active">Paid APIs</a>
+    <a href="genai-apis.html">AI Model APIs</a>
+  </div>
+</nav>
 
-  <div class="container">
-    <div class="page-header">
-      <h1>Paid & Freemium APIs</h1>
-      <p style="color: var(--text-muted);">Enterprise grade APIs with base endpoints and direct links to request API Keys.</p>
-    </div>
-
-    <div class="search-box">
-      <input type="text" id="searchInput" class="search-input" placeholder="Search enterprise APIs...">
-    </div>
-
-    <div id="apiGrid" class="api-grid"></div>
+<section class="section" style="padding-top:50px;">
+  <div class="section-head">
+    <h2>Paid APIs</h2>
+    <p>Production-grade services jinke liye plan lena padta hai. "Website par jaayein" par click karke seedhe pricing/signup page par pahunchein.</p>
   </div>
 
-  <div class="version-badge">v0.0.1</div>
+  <div class="api-grid" id="paidGrid"></div>
+</section>
 
-  <script src="../js/main.js"></script>
-  <script src="../js/paid-apis.js"></script>
+<footer>
+  <span>&copy; 2026 API Nexus</span>
+  <span>Payment aur billing seedhe respective company ki website par hoti hai.</span>
+</footer>
+
+<script src="/js/paid-apis.js"></script>
+<script src="/js/main.js"></script>
 </body>
 </html>
