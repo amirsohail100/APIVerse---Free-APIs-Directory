@@ -1,45 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free APIs Hub - APIVerse</title>
-  <link rel="stylesheet" href="../css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free APIs — API Verse</title>
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-  <!-- Background Canvas Animation -->
-  <canvas id="bg-canvas"></canvas>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
 
-  <nav class="navbar">
-    <a href="../index.html" class="logo">🌐 APIVerse</a>
-    <div class="nav-controls">
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="free-apis.html" class="active">Free APIs</a></li>
-        <li><a href="paid-apis.html">Paid APIs</a></li>
-        <li><a href="genai-apis.html">GenAI APIs</a></li>
-      </ul>
-      <button id="themeToggleBtn" class="theme-toggle-btn">🌙 Dark</button>
-    </div>
-  </nav>
+<nav class="navbar">
+  <div class="brand"><span class="brand-mark"></span> API Verse</div>
+  <div class="nav-links">
+    <a href="/index.html">Home</a>
+    <a href="free-apis.html" class="active">Free APIs</a>
+    <a href="paid-apis.html">Paid APIs</a>
+    <a href="genai-apis.html">AI Model APIs</a>
+  </div>
+</nav>
 
-  <div class="container">
-    <div class="page-header">
-      <h1>Completely Free APIs</h1>
-      <p style="color: var(--text-muted);">Explore public APIs with zero payment barriers and copy live working endpoints instantly.</p>
-    </div>
-
-    <div class="search-box">
-      <input type="text" id="searchInput" class="search-input" placeholder="Search free APIs by name, category, or keyword...">
-    </div>
-
-    <div id="apiGrid" class="api-grid"></div>
+<section class="section" style="padding-top:50px;">
+  <div class="section-head">
+    <h2>Free APIs</h2>
+    <p>Search karein, category se filter karein, aur star icon click karke apni shortlist banayein.</p>
   </div>
 
-  <div class="version-badge">v0.0.1</div>
+  <div class="toolbar">
+    <div class="search-box">
+      <span>🔍</span>
+      <input type="text" id="searchInput" placeholder="API dhoondhein — jaise 'weather', 'crypto', 'jokes'...">
+    </div>
+  </div>
+  <div class="chip-group" id="chipGroup" style="margin-bottom:20px;"></div>
 
-  <script src="../js/main.js"></script>
-  <script src="../js/free-apis.js"></script>
+  <div class="result-count" id="resultCount"></div>
+  <div class="api-grid" id="apiGrid"></div>
+</section>
+
+<button class="shortlist-toggle" id="shortlistToggle">⭐ Shortlist <span id="shortlistCount">0</span></button>
+<div class="shortlist-drawer" id="shortlistDrawer"></div>
+
+<footer>
+  <span>&copy; 2026 API Nexus</span>
+  <span>Shortlist aapke browser mein hi save hoti hai.</span>
+</footer>
+
+<script src="/js/free-apis.js"></script>
+<script src="/js/main.js"></script>
 </body>
 </html>
