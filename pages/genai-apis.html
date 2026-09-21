@@ -1,30 +1,40 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Model APIs — API Verse</title>
-<link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Model APIs — API Verse</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 
+<!-- Navigation Bar -->
 <nav class="navbar">
   <div class="brand"><span class="brand-mark"></span> API Verse</div>
   <div class="nav-links">
-    <a href="/index.html">Home</a>
+    <a href="../index.html">Home</a>
     <a href="free-apis.html">Free APIs</a>
     <a href="paid-apis.html">Paid APIs</a>
     <a href="genai-apis.html" class="active">AI Model APIs</a>
+    <button class="shortlist-trigger" id="shortlistToggle">
+      ★ Shortlist (<span id="shortlistCount">0</span>)
+    </button>
   </div>
 </nav>
+
+<!-- Shortlist Drawer -->
+<div class="shortlist-drawer" id="shortlistDrawer">
+  <h4>Your Saved APIs</h4>
+  <p style="color:var(--text-dim); font-size:0.88rem;">No APIs shortlisted yet. Click the star icon on any API card to save it.</p>
+</div>
 
 <section class="section" style="padding-top:50px;">
   <div class="section-head">
     <h2>AI Model APIs</h2>
-    <p>OpenAI, Mistral, Claude, Gemini aur baaki providers ke API key page ka seedha link — sign in karte hi aap unke dashboard mein honge, kahin bhatakna nahi padega.</p>
+    <p>Direct access to API key dashboards for OpenAI, Anthropic Claude, Google Gemini, Mistral, and leading GenAI providers. Get started in seconds with official key links.</p>
   </div>
 
   <div class="ai-grid" id="aiGrid"></div>
@@ -35,7 +45,7 @@
   <p>&copy; 2026 Quadra Collective. All rights reserved. | Developed with ❤️ by <a href="https://github.com/amirsohail100" target="_blank" class="dev-credit">Amir Sohail</a></p>
 </footer>
 
-<script src="/js/genai-apis.js"></script>
-<script src="/js/main.js"></script>
+<script src="../js/genai-apis.js"></script>
+<script src="../js/main.js"></script>
 </body>
 </html>
