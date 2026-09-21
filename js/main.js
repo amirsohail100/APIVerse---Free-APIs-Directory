@@ -66,24 +66,30 @@ function renderFreeApis(){
     return;
   }
 
-  grid.innerHTML = filtered.map(api => `
-    <div class="api-card" data-name="${api.name}">
-      <div class="api-card-top">
-        <div>
-          <span class="category-pill">${api.category}</span>
-          <h3>${api.name}</h3>
+  grid.innerHTML = filtered.map(api => {
+    const copyBtn = api.endpoint ? 
+      `<button class="copy-btn" onclick="copyEndpoint('${api.endpoint}', this)">📋 Copy Endpoint</button>` : '';
+
+    return `
+      <div class="api-card" data-name="${api.name}">
+        <div class="api-card-top">
+          <div>
+            <span class="category-pill">${api.category}</span>
+            <h3>${api.name}</h3>
+          </div>
+          <span class="tag-pill ${api.tag.includes('Free') ? 'paid' : ''}">${api.tag}</span>
         </div>
-        <span class="tag-pill">${api.tag}</span>
+        <p class="desc">${api.desc}</p>
+        <div class="api-card-footer">
+          <a class="link-btn" href="${api.url}" target="_blank" rel="noopener">Docs dekhein &rarr;</a>
+          ${copyBtn}
+          <button class="shortlist-btn ${isShortlisted(api.name) ? "saved" : ""}" data-name="${api.name}" title="Shortlist karein">
+            ${isShortlisted(api.name) ? "&#9733;" : "&#9734;"}
+          </button>
+        </div>
       </div>
-      <p class="desc">${api.desc}</p>
-      <div class="api-card-footer">
-        <a class="link-btn" href="${api.url}" target="_blank" rel="noopener">Docs dekhein &rarr;</a>
-        <button class="shortlist-btn ${isShortlisted(api.name) ? "saved" : ""}" data-name="${api.name}" title="Shortlist karein">
-          ${isShortlisted(api.name) ? "&#9733;" : "&#9734;"}
-        </button>
-      </div>
-    </div>
-  `).join("");
+    `;
+  }).join("");
 
   grid.querySelectorAll(".shortlist-btn").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -95,6 +101,21 @@ function renderFreeApis(){
   });
 
   attachTilt(".api-card");
+}
+
+/* ---------- Copy Endpoint Logic ---------- */
+function copyEndpoint(endpoint, btnElement) {
+  navigator.clipboard.writeText(endpoint).then(() => {
+    const originalText = btnElement.innerText;
+    btnElement.innerText = "Copied! ✓";
+    btnElement.classList.add("copied");
+    setTimeout(() => {
+      btnElement.innerText = originalText;
+      btnElement.classList.remove("copied");
+    }, 2000);
+  }).catch(err => {
+    console.error("Failed to copy endpoint: ", err);
+  });
 }
 
 function setupFreeApisPage(){
@@ -201,7 +222,7 @@ function renderAiApis(){
       <a class="ai-signin-btn" href="${api.url}" target="_blank" rel="noopener">Sign in &amp; API Key lein &rarr;</a>
     </div>
   `).join("");
-  attachTilt(".ai-card");
+  attachTilt(".api-card");
 }
 
 /* ---------- Home page: 3D orbit nodes ---------- */
