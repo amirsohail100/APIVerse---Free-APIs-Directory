@@ -1,104 +1,125 @@
+/* ==========================================================================
+   API Verse - Paid & Enterprise APIs Dataset (100 APIs)
+   ========================================================================== */
+
 const PAID_APIS = [
-  { name: "Google Maps Platform", category: "Maps", desc: "Maps, geocoding, places aur directions — production-grade location services.", url: "https://mapsplatform.google.com/", pricing: "Pay-as-you-go" },
-  { name: "Twilio", category: "Communication", desc: "SMS, voice calls aur WhatsApp messaging apne app me integrate karo.", url: "https://www.twilio.com/en-us/pricing", pricing: "Usage-based" },
-  { name: "Stripe", category: "Payments", desc: "Online payments, subscriptions aur invoicing ke liye industry-standard API.", url: "https://stripe.com/pricing", pricing: "Per-transaction" },
-  { name: "AWS (Amazon Web Services)", category: "Cloud", desc: "Compute, storage, database — sab kuch cloud pe, hundreds of APIs.", url: "https://aws.amazon.com/pricing/", pricing: "Pay-as-you-go" },
-  { name: "SendGrid", category: "Email", desc: "Transactional aur marketing emails bhejne ke liye reliable API.", url: "https://sendgrid.com/en-us/pricing", pricing: "Tiered plans" },
-  { name: "Algolia", category: "Search", desc: "Lightning-fast search API apki website ya app ke liye.", url: "https://www.algolia.com/pricing/", pricing: "Usage-based" },
-  { name: "Cloudinary", category: "Media", desc: "Image aur video upload, optimization aur delivery at scale.", url: "https://cloudinary.com/pricing", pricing: "Tiered plans" },
-  { name: "Bloomberg Market Data", category: "Finance", desc: "Professional-grade real-time financial market data.", url: "https://www.bloomberg.com/professional/product/market-data/", pricing: "Enterprise" },
-  { name: "Zoom API", category: "Communication", desc: "Video meetings, webinars apne app me embed karo.", url: "https://developers.zoom.us/pricing/", pricing: "Tiered plans" },
-  { name: "Shopify API", category: "E-commerce", desc: "Apna khud ka e-commerce store apps ke through control karo.", url: "https://www.shopify.com/plus", pricing: "Plan-based" },
+  // --- Original 10 APIs (Unchanged) ---
+  { name: "Google Maps Platform", category: "Maps", desc: "Maps, geocoding, places aur directions — production-grade location services.", url: "https://mapsplatform.google.com/", pricing: "Pay-as-you-go", color: "#4285F4", env: "GOOGLE_MAPS_API_KEY" },
+  { name: "Twilio", category: "Communication", desc: "SMS, voice calls aur WhatsApp messaging apne app me integrate karo.", url: "https://www.twilio.com/en-us/pricing", pricing: "Usage-based", color: "#F22F46", env: "TWILIO_ACCOUNT_SID" },
+  { name: "Stripe", category: "Payments", desc: "Online payments, subscriptions aur invoicing ke liye industry-standard API.", url: "https://stripe.com/pricing", pricing: "Per-transaction", color: "#635BFF", env: "STRIPE_SECRET_KEY" },
+  { name: "AWS (Amazon Web Services)", category: "Cloud", desc: "Compute, storage, database — sab kuch cloud pe, hundreds of APIs.", url: "https://aws.amazon.com/pricing/", pricing: "Pay-as-you-go", color: "#FF9900", env: "AWS_ACCESS_KEY_ID" },
+  { name: "SendGrid", category: "Email", desc: "Transactional aur marketing emails bhejne ke liye reliable API.", url: "https://sendgrid.com/en-us/pricing", pricing: "Tiered plans", color: "#1A82E2", env: "SENDGRID_API_KEY" },
+  { name: "Algolia", category: "Search", desc: "Lightning-fast search API apki website ya app ke liye.", url: "https://www.algolia.com/pricing/", pricing: "Usage-based", color: "#5468FF", env: "ALGOLIA_API_KEY" },
+  { name: "Cloudinary", category: "Media", desc: "Image aur video upload, optimization aur delivery at scale.", url: "https://cloudinary.com/pricing", pricing: "Tiered plans", color: "#3448C5", env: "CLOUDINARY_URL" },
+  { name: "Bloomberg Market Data", category: "Finance", desc: "Professional-grade real-time financial market data.", url: "https://www.bloomberg.com/professional/product/market-data/", pricing: "Enterprise", color: "#2800D7", env: "BLOOMBERG_API_KEY" },
+  { name: "Zoom API", category: "Communication", desc: "Video meetings, webinars apne app me embed karo.", url: "https://developers.zoom.us/pricing/", pricing: "Tiered plans", color: "#2D8CFF", env: "ZOOM_JWT_TOKEN" },
+  { name: "Shopify API", category: "E-commerce", desc: "Apna khud ka e-commerce store apps ke through control karo.", url: "https://www.shopify.com/plus", pricing: "Plan-based", color: "#96BF48", env: "SHOPIFY_ACCESS_TOKEN" },
+
+  // --- AI & Machine Learning (11-20) ---
+  { name: "OpenAI Platform API", category: "AI & ML", desc: "GPT-4o, DALL-E 3, and Whisper speech-to-text models for enterprise apps.", url: "https://openai.com/api/pricing/", pricing: "Token-based", color: "#10A37F", env: "OPENAI_API_KEY" },
+  { name: "Anthropic Claude API", category: "AI & ML", desc: "Claude 3.5 Sonnet and Opus APIs for complex reasoning and large context tasks.", url: "https://www.anthropic.com/pricing", pricing: "Token-based", color: "#D97757", env: "ANTHROPIC_API_KEY" },
+  { name: "Pinecone", category: "AI & ML", desc: "Vector database API for ultra-fast similarity search and RAG pipelines.", url: "https://www.pinecone.io/pricing/", pricing: "Usage-based", color: "#000000", env: "PINECONE_API_KEY" },
+  { name: "ElevenLabs", category: "AI & ML", desc: "Prime AI voice generator and text-to-speech API with natural accents.", url: "https://elevenlabs.io/pricing", pricing: "Tiered plans", color: "#2F2F2F", env: "ELEVENLABS_API_KEY" },
+  { name: "Runway ML API", category: "AI & ML", desc: "Generative video and image synthesis capabilities for creative pipelines.", url: "https://runwayml.com/pricing", pricing: "Credits-based", color: "#FF3366", env: "RUNWAY_API_KEY" },
+  { name: "Replicate", category: "AI & ML", desc: "Run open-source machine learning models with a single cloud API call.", url: "https://replicate.com/pricing", pricing: "Per-second execution", color: "#000000", env: "REPLICATE_API_TOKEN" },
+  { name: "DeepL Translation API", category: "AI & ML", desc: "Accurate neural machine translation API supporting dozens of languages.", url: "https://www.deepl.com/pro-api", pricing: "Usage-based", color: "#0F2B46", env: "DEEPL_AUTH_KEY" },
+  { name: "AssemblyAI", category: "AI & ML", desc: "Speech-to-text transcription, speaker diarization, and audio intelligence APIs.", url: "https://www.assemblyai.com/pricing", pricing: "Audio-minute based", color: "#2563EB", env: "ASSEMBLYAI_API_KEY" },
+  { name: "Stability AI API", category: "AI & ML", desc: "Stable Diffusion 3 image generation and fine-tuning web endpoints.", url: "https://stability.ai/pricing", pricing: "Credits-based", color: "#8B5CF6", env: "STABILITY_API_KEY" },
+  { name: "Midjourney Unofficial API", category: "AI & ML", desc: "Enterprise third-party wrapper APIs for high-end Midjourney image generation.", url: "https://useapi.net/", pricing: "Tiered plans", color: "#111827", env: "USEAPI_TOKEN" },
+
+  // --- Payments & FinTech (21-30) ---
+  { name: "Plaid API", category: "Payments", desc: "Connect user bank accounts, verify balances, and process ACH transfers.", url: "https://plaid.com/pricing/", pricing: "Usage-based", color: "#111111", env: "PLAID_CLIENT_ID" },
+  { name: "Razorpay", category: "Payments", desc: "Leading payment gateway API for India supporting UPI, Cards, and NetBanking.", url: "https://razorpay.com/pricing/", pricing: "Per-transaction", color: "#0C2340", env: "RAZORPAY_KEY_ID" },
+  { name: "PayPal Developer API", category: "Payments", desc: "Global payment processing, digital wallets, and payout integrations.", url: "https://developer.paypal.com/pricing/", pricing: "Per-transaction", color: "#003087", env: "PAYPAL_CLIENT_ID" },
+  { name: "Square API", category: "Payments", desc: "POS integration, online payments, and inventory management for commerce.", url: "https://squareup.com/pricing", pricing: "Per-transaction", color: "#000000", env: "SQUARE_ACCESS_TOKEN" },
+  { name: "Lemonsqueezy", category: "Payments", desc: "Merchant of record platform for SaaS subscriptions, digital products, and tax compliance.", url: "https://www.lemonsqueezy.com/pricing", pricing: "Flat % fee", color: "#FFC700", env: "LEMONSQUEEZY_API_KEY" },
+  { name: "Paddle API", category: "Payments", desc: "Complete payment, tax, and subscription management for digital software.", url: "https://www.paddle.com/pricing", pricing: "Percentage + fixed", color: "#3B82F6", env: "PADDLE_VENDOR_AUTH_CODE" },
+  { name: "Adyen", category: "Payments", desc: "Global end-to-end payment infrastructure for enterprise retail and web.", url: "https://www.adyen.com/pricing", pricing: "Per-transaction", color: "#00112C", env: "ADYEN_API_KEY" },
+  { name: "Coinbase Commerce", category: "Payments", desc: "Accept Bitcoin, Ethereum, and crypto payments directly into your business.", url: "https://commerce.coinbase.com/", pricing: "1% Transaction fee", color: "#0052FF", env: "COINBASE_COMMERCE_KEY" },
+  { name: "Yodlee API", category: "Finance", desc: "Financial data aggregation platform powering fintech applications worldwide.", url: "https://developer.yodlee.com/", pricing: "Enterprise", color: "#0066CC", env: "YODLEE_CLIENT_ID" },
+  { name: "Wise API", category: "Finance", desc: "Automate cross-border payouts, multi-currency accounts, and FX rates.", url: "https://wise.com/us/business/api", pricing: "Low fixed fee", color: "#2563EB", env: "WISE_API_TOKEN" },
+
+  // --- Messaging, Email & Communication (31-40) ---
+  { name: "MessageBird / Bird", category: "Communication", desc: "Omnichannel customer conversation API for SMS, WhatsApp, and Voice.", url: "https://bird.com/pricing", pricing: "Usage-based", color: "#232F3E", env: "BIRD_ACCESS_KEY" },
+  { name: "Resend", category: "Email", desc: "Modern, developer-first email API built for React Email and Next.js.", url: "https://resend.com/pricing", pricing: "Tiered plans", color: "#000000", env: "RESEND_API_KEY" },
+  { name: "Mailgun", category: "Email", desc: "Powerful transactional email delivery, validation, and analytics service.", url: "https://www.mailgun.com/pricing/", pricing: "Usage-based", color: "#F05A28", env: "MAILGUN_API_KEY" },
+  { name: "Postmark", category: "Email", desc: "Lightning-fast delivery for app transactional emails with high inbox placement.", url: "https://postmarkapp.com/pricing", pricing: "Tiered plans", color: "#FFDE00", env: "POSTMARK_SERVER_TOKEN" },
+  { name: "Sinch", category: "Communication", desc: "Global cloud communications platform for SMS, RCS, Voice, and Verification.", url: "https://www.sinch.com/pricing/", pricing: "Usage-based", color: "#FF0055", env: "SINCH_API_KEY" },
+  { name: "OneSignal", category: "Communication", desc: "Push notification, in-app messaging, and email service for web and mobile.", url: "https://onesignal.com/pricing", pricing: "Tiered plans", color: "#E54B4D", env: "ONESIGNAL_APP_ID" },
+  { name: "Pusher", category: "Communication", desc: "Real-time WebSocket infrastructure for chat applications and web notifications.", url: "https://pusher.com/pricing/", pricing: "Tiered plans", color: "#300D4F", env: "PUSHER_APP_KEY" },
+  { name: "Ably", category: "Communication", desc: "Enterprise pub/sub messaging engine delivering low-latency real-time data.", url: "https://ably.com/pricing", pricing: "Usage-based", color: "#FF5A16", env: "ABLY_API_KEY" },
+  { name: "Vonage (Nexmo)", category: "Communication", desc: "Flexible APIs for SMS, voice calling, video streams, and 2FA authentication.", url: "https://www.vonage.com/pricing/", pricing: "Pay-as-you-go", color: "#7B00FF", env: "VONAGE_API_KEY" },
+  { name: "Telnyx", category: "Communication", desc: "Elastic SIP trunking, wireless IoT cellular data, and programmable SMS.", url: "https://telnyx.com/pricing", pricing: "Usage-based", color: "#000000", env: "TELNYX_API_KEY" },
+
+  // --- Cloud, Storage & Serverless Infrastructure (41-50) ---
+  { name: "Google Cloud Platform", category: "Cloud", desc: "Scalable infrastructure, BigQuery analytics, and Vertex AI suite.", url: "https://cloud.google.com/pricing", pricing: "Pay-as-you-go", color: "#4285F4", env: "GCP_PROJECT_ID" },
+  { name: "Microsoft Azure API", category: "Cloud", desc: "Enterprise cloud services, Azure OpenAI, and hybrid database networks.", url: "https://azure.microsoft.com/en-us/pricing/", pricing: "Pay-as-you-go", color: "#0078D4", env: "AZURE_SUBSCRIPTION_ID" },
+  { name: "Supabase API", category: "Cloud", desc: "Hosted Postgres database, instantly generated REST/GraphQL endpoints, and Auth.", url: "https://supabase.com/pricing", pricing: "Tiered plans", color: "#3ECF8E", env: "SUPABASE_SERVICE_ROLE_KEY" },
+  { name: "Firebase API", category: "Cloud", desc: "Realtime Database, Firestore, Auth, and Cloud Functions suite from Google.", url: "https://firebase.google.com/pricing", pricing: "Pay-as-you-go", color: "#FFCA28", env: "FIREBASE_PRIVATE_KEY" },
+  { name: "PlanetScale", category: "Cloud", desc: "Serverless MySQL platform with branching workflows and zero-downtime schema changes.", url: "https://planetscale.com/pricing", pricing: "Tiered plans", color: "#000000", env: "PLANETSCALE_TOKEN" },
+  { name: "Neon Postgres API", category: "Cloud", desc: "Serverless Postgres with autoscaling, database branching, and instant provisioning.", url: "https://neon.tech/pricing", pricing: "Usage-based", color: "#00E599", env: "NEON_DATABASE_URL" },
+  { name: "Upstash API", category: "Cloud", desc: "Serverless Redis and Vector Database via HTTP/REST APIs for edge runtimes.", url: "https://upstash.com/pricing", pricing: "Pay-per-request", color: "#00E9A3", env: "UPSTASH_REDIS_REST_TOKEN" },
+  { name: "Vercel REST API", category: "Cloud", desc: "Manage web deployments, custom domains, serverless logs, and DNS records.", url: "https://vercel.com/pricing", pricing: "Tiered plans", color: "#000000", env: "VERCEL_AUTH_TOKEN" },
+  { name: "Netlify API", category: "Cloud", desc: "Deploy web apps, manage serverless forms, identity, and edge functions.", url: "https://www.netlify.com/pricing/", pricing: "Tiered plans", color: "#00C7B7", env: "NETLIFY_AUTH_TOKEN" },
+  { name: "DigitalOcean API", category: "Cloud", desc: "Programmatically provision Droplets, Kubernetes clusters, and App Platform.", url: "https://www.digitalocean.com/pricing", pricing: "Pay-as-you-go", color: "#0080FF", env: "DIGITALOCEAN_TOKEN" },
+
+  // --- Authentication, Security & Compliance (51-60) ---
+  { name: "Auth0 API", category: "Auth & Security", desc: "Universal identity platform supporting OAuth2, SSO, and MFA integration.", url: "https://auth0.com/pricing", pricing: "Tiered plans", color: "#EB5424", env: "AUTH0_CLIENT_SECRET" },
+  { name: "Clerk API", category: "Auth & Security", desc: "Complete user management and authentication optimized for React and Next.js.", url: "https://clerk.com/pricing", pricing: "Tiered plans", color: "#6C47FF", env: "CLERK_SECRET_KEY" },
+  { name: "Okta API", category: "Auth & Security", desc: "Enterprise identity management, employee SSO, and directory synchronization.", url: "https://www.okta.com/pricing/", pricing: "Per-user pricing", color: "#007DC1", env: "OKTA_API_TOKEN" },
+  { name: "Snyk API", category: "Auth & Security", desc: "Developer security platform for scanning vulnerabilities in code and packages.", url: "https://snyk.io/pricing/", pricing: "Tiered plans", color: "#4C1D95", env: "SNYK_TOKEN" },
+  { name: "HaveIBeenPwned API", category: "Auth & Security", desc: "Check if email addresses or passwords have been leaked in data breaches.", url: "https://haveibeenpwned.com/API/v3", pricing: "Subscription fee", color: "#222222", env: "HIBP_API_KEY" },
+  { name: "Abstract IP Geolocation", category: "Auth & Security", desc: "Geolocate IP addresses, detect proxy/VPN usage, and prevent fraud.", url: "https://www.abstractapi.com/api/ip-geolocation-api", pricing: "Tiered plans", color: "#0066FF", env: "ABSTRACT_IP_KEY" },
+  { name: "FingerprintJS Pro", category: "Auth & Security", desc: "99.5% accurate browser fingerprinting and fraud detection engine.", url: "https://fingerprint.com/pricing/", pricing: "Usage-based", color: "#F43F5E", env: "FINGERPRINT_SECRET_KEY" },
+  { name: "Stytch API", category: "Auth & Security", desc: "Passwordless authentication API featuring magic links, passkeys, and biometrics.", url: "https://stytch.com/pricing", pricing: "Pay-as-you-grow", color: "#191919", env: "STYTCH_SECRET" },
+  { name: "Veriff API", category: "Auth & Security", desc: "AI-driven identity verification, ID card scanning, and liveness check API.", url: "https://www.veriff.com/pricing", pricing: "Per-verification", color: "#003A30", env: "VERIFF_API_SECRET" },
+  { name: "Persona Identity API", category: "Auth & Security", desc: "KYC/AML compliance, identity verification, and document validation framework.", url: "https://withpersona.com/pricing", pricing: "Usage-based", color: "#1F2937", env: "PERSONA_API_KEY" },
+
+  // --- Location, Maps & GIS (61-70) ---
+  { name: "Mapbox API", category: "Maps", desc: "Custom vector map tiles, geocoding, turn-by-turn navigation, and AR features.", url: "https://www.mapbox.com/pricing", pricing: "Pay-as-you-go", color: "#4264FB", env: "MAPBOX_ACCESS_TOKEN" },
+  { name: "HERE Location Services", category: "Maps", desc: "Enterprise route planning, real-time traffic data, and fleet tracking APIs.", url: "https://developer.here.com/pricing", pricing: "Freemium / Paid", color: "#00A389", env: "HERE_API_KEY" },
+  { name: "TomTom API", category: "Maps", desc: "Traffic density, matrix routing, map rendering, and geofencing tools.", url: "https://developer.tomtom.com/pricing", pricing: "Pay-as-you-go", color: "#DF1B12", env: "TOMTOM_API_KEY" },
+  { name: "Radar.io", category: "Maps", desc: "Geofencing, location tracking, and trip tracking APIs for mobile applications.", url: "https://radar.com/pricing", pricing: "Tiered plans", color: "#0070F3", env: "RADAR_SECRET_KEY" },
+  { name: "Positionstack", category: "Maps", desc: "Forward and reverse geocoding API for worldwide addresses and coordinates.", url: "https://positionstack.com/product", pricing: "Tiered plans", color: "#0052CC", env: "POSITIONSTACK_KEY" },
+  { name: "Ipstack API", category: "Maps", desc: "Locate and identify website visitors by IP address in real-time.", url: "https://ipstack.com/product", pricing: "Tiered plans", color: "#1E293B", env: "IPSTACK_ACCESS_KEY" },
+  { name: "Planet Labs API", category: "Maps", desc: "High-resolution daily satellite imagery and Earth observation monitoring.", url: "https://www.planet.com/pricing/", pricing: "Enterprise", color: "#000000", env: "PLANET_API_KEY" },
+  { name: "MaxMind GeoIP2", category: "Maps", desc: "Industry standard IP intelligence databases and web services for location data.", url: "https://www.maxmind.com/en/geoip2-services-and-databases", pricing: "Usage-based", color: "#1F3B5C", env: "MAXMIND_LICENSE_KEY" },
+  { name: "OpenCage Geocoding", category: "Maps", desc: "Geocoding API aggregating OpenStreetMap and multiple open geographical databases.", url: "https://opencagedata.com/pricing", pricing: "Tiered plans", color: "#2B823B", env: "OPENCAGE_API_KEY" },
+  { name: "LocationIQ", category: "Maps", desc: "Affordable geocoding, autocomplete, and mapping services based on OSM.", url: "https://locationiq.com/pricing", pricing: "Pay-as-you-go", color: "#3B82F6", env: "LOCATIONIQ_TOKEN" },
+
+  // --- E-Commerce & Logistics (71-80) ---
+  { name: "EasyPost API", category: "E-commerce", desc: "Multi-carrier shipping API for FedEx, UPS, DHL, and tracking updates.", url: "https://www.easypost.com/pricing", pricing: "Per-label fee", color: "#232A36", env: "EASYPOST_API_KEY" },
+  { name: "Shippo API", category: "E-commerce", desc: "Calculate shipping rates, print shipping labels, and track international packages.", url: "https://goshippo.com/pricing/", pricing: "Per-label fee", color: "#0052FF", env: "SHIPPO_API_TOKEN" },
+  { name: "BigCommerce API", category: "E-commerce", desc: "Headless e-commerce engine API for store management and checkout systems.", url: "https://www.bigcommerce.com/pricing/", pricing: "Tiered plans", color: "#121118", env: "BIGCOMMERCE_ACCESS_TOKEN" },
+  { name: "Printify API", category: "E-commerce", desc: "Automate custom print-on-demand product creation and merchant fulfillment.", url: "https://printify.com/", pricing: "Per-order fee", color: "#27AB6A", env: "PRINTIFY_API_TOKEN" },
+  { name: "Lob API", category: "E-commerce", desc: "Automated physical direct mail, address verification, and postcard sending API.", url: "https://www.lob.com/pricing", pricing: "Usage-based", color: "#22D3EE", env: "LOB_LIVE_API_KEY" },
+  { name: "TaxJar API", category: "E-commerce", desc: "Automate sales tax calculation, filing, and reporting across global jurisdictions.", url: "https://www.taxjar.com/pricing", pricing: "Tiered plans", color: "#0A2540", env: "TAXJAR_API_KEY" },
+  { name: "AvaTax / Avalara", category: "E-commerce", desc: "Enterprise cloud-based tax compliance and cross-border customs duty API.", url: "https://www.avalara.com/us/en/products/pricing.html", pricing: "Enterprise", color: "#FF6600", env: "AVALARA_ACCOUNT_ID" },
+  { name: "Snipcart API", category: "E-commerce", desc: "Add a custom HTML/JS shopping cart to any website in minutes.", url: "https://snipcart.com/pricing", pricing: "2% per transaction", color: "#F59E0B", env: "SNIPCART_API_KEY" },
+  { name: "Commerce Layer", category: "E-commerce", desc: "Headless commerce engine for global multi-currency and multi-inventory enterprise stores.", url: "https://commercelayer.io/pricing", pricing: "Tiered plans", color: "#000000", env: "COMMERCELAYER_CLIENT_SECRET" },
+  { name: "SwagUp API", category: "E-commerce", desc: "Automate custom company swag creation, warehousing, and worldwide delivery.", url: "https://www.swagup.com/", pricing: "Per-order fee", color: "#3B82F6", env: "SWAGUP_API_KEY" },
+
+  // --- Analytics, Monitoring & Developer Tools (81-90) ---
+  { name: "Mixpanel API", category: "Analytics", desc: "Product analytics API to track event streams, user retention, and conversion funnels.", url: "https://mixpanel.com/pricing/", pricing: "Usage-based", color: "#7856FF", env: "MIXPANEL_TOKEN" },
+  { name: "Segment API (Twilio)", category: "Analytics", desc: "Customer Data Platform (CDP) to collect and route telemetry events anywhere.", url: "https://segment.com/pricing/", pricing: "Tiered plans", color: "#52BD94", env: "SEGMENT_WRITE_KEY" },
+  { name: "PostHog API", category: "Analytics", desc: "All-in-one product analytics, session recording, and feature flags platform.", url: "https://posthog.com/pricing", pricing: "Pay-as-you-go", color: "#F54E00", env: "POSTHOG_PROJECT_API_KEY" },
+  { name: "Sentry API", category: "DevTools", desc: "Real-time error tracking, crash reporting, and performance monitoring framework.", url: "https://sentry.io/pricing/", pricing: "Tiered plans", color: "#362D59", env: "SENTRY_AUTH_TOKEN" },
+  { name: "Datadog API", category: "DevTools", desc: "Cloud monitoring, APM tracing, log management, and infrastructure metrics.", url: "https://www.datadoghq.com/pricing/", pricing: "Usage-based", color: "#632CA6", env: "DATADOG_API_KEY" },
+  { name: "LogRocket API", category: "DevTools", desc: "Front-end application session replay, performance, and bug tracking suite.", url: "https://logrocket.com/pricing/", pricing: "Tiered plans", color: "#764ABC", env: "LOGROCKET_APP_ID" },
+  { name: "Amplitude API", category: "Analytics", desc: "Digital analytics platform for tracking user engagement and product growth.", url: "https://amplitude.com/pricing", pricing: "Tiered plans", color: "#0052FF", env: "AMPLITUDE_API_KEY" },
+  { name: "New Relic API", category: "DevTools", desc: "Observability platform for application performance monitoring and cloud logging.", url: "https://newrelic.com/pricing", pricing: "Pay-as-you-go", color: "#008C99", env: "NEW_RELIC_API_KEY" },
+  { name: "LaunchDarkly API", category: "DevTools", desc: "Feature flag management and targeted rollouts for enterprise engineering teams.", url: "https://launchdarkly.com/pricing/", pricing: "Tiered plans", color: "#405BFF", env: "LAUNCHDARKLY_SDK_KEY" },
+  { name: "BrowserStack API", category: "DevTools", desc: "Automate cross-browser cross-device Selenium and Playwright test executions.", url: "https://www.browserstack.com/pricing", pricing: "Tiered plans", color: "#E11D48", env: "BROWSERSTACK_ACCESS_KEY" },
+
+  // --- Content, Media, Scraping & Miscellaneous (91-100) ---
+  { name: "ScrapingBee", category: "Media", desc: "Web scraping API handling headless browser rendering and rotating proxies.", url: "https://www.scrapingbee.com/pricing/", pricing: "Credits-based", color: "#FFC83B", env: "SCRAPINGBEE_API_KEY" },
+  { name: "ScraperAPI", category: "Media", desc: "Proxy rotator and web crawler API for scraping complex sites without getting blocked.", url: "https://www.scraperapi.com/pricing/", pricing: "Tiered plans", color: "#3B82F6", env: "SCRAPERAPI_KEY" },
+  { name: "Imgix API", category: "Media", desc: "Real-time image processing, responsive resizing, and CDN optimization.", url: "https://www.imgix.com/pricing", pricing: "Usage-based", color: "#FF4A00", env: "IMGIX_API_KEY" },
+  { name: "Mux API", category: "Media", desc: "Video streaming and live broadcast API infrastructure built on top of FFmpeg.", url: "https://www.mux.com/pricing", pricing: "Pay-as-you-use", color: "#000000", env: "MUX_TOKEN_SECRET" },
+  { name: "Deepgram API", category: "Media", desc: "Enterprise AI audio transcription and real-time speech analytics engine.", url: "https://deepgram.com/pricing", pricing: "Pay-as-you-go", color: "#13EF95", env: "DEEPGRAM_API_KEY" },
+  { name: "Sanity.io API", category: "Content", desc: "Headless CMS content platform with real-time collaborative editing APIs.", url: "https://www.sanity.io/pricing", pricing: "Pay-as-you-go", color: "#F03E2F", env: "SANITY_API_TOKEN" },
+  { name: "Contentful API", category: "Content", desc: "Composable content platform for enterprise digital experience delivery.", url: "https://www.contentful.com/pricing/", pricing: "Tiered plans", color: "#2478CC", env: "CONTENTFUL_DELIVERY_TOKEN" },
+  { name: "Intercom API", category: "Communication", desc: "Customer support platform, live chat bots, and automated ticketing APIs.", url: "https://www.intercom.com/pricing", pricing: "Seat-based pricing", color: "#000000", env: "INTERCOM_ACCESS_TOKEN" },
+  { name: "Zendesk API", category: "Communication", desc: "Enterprise customer service ticketing, support CRM, and knowledge base APIs.", url: "https://www.zendesk.com/pricing/", pricing: "Per-agent plans", color: "#03363D", env: "ZENDESK_API_TOKEN" },
+  { name: "OpenWeatherMap Pro", category: "Weather", desc: "Professional meteorology forecasting, radar maps, and historical weather data.", url: "https://openweathermap.org/price", pricing: "Subscription fee", color: "#EB6E4B", env: "OPENWEATHER_API_KEY" }
 ];
-
-
-// const paidApis = [
-//   { 
-//     name: "Stripe API", 
-//     category: "Payments", 
-//     desc: "Online payment processing suite for internet businesses with webhooks.", 
-//     endpoint: "https://api.stripe.com/v1/charges", 
-//     keyUrl: "https://dashboard.stripe.com/register" 
-//   },
-//   { 
-//     name: "Twilio SMS API", 
-//     category: "Communication", 
-//     desc: "Programmable SMS, voice calls, WhatsApp messaging, and verification.", 
-//     endpoint: "https://api.twilio.com/2010-04-01/Accounts", 
-//     keyUrl: "https://www.twilio.com/try-twilio" 
-//   },
-//   { 
-//     name: "Google Maps Platform", 
-//     category: "Maps", 
-//     desc: "World-class mapping, routing, geocoding, and places API for enterprise apps.", 
-//     endpoint: "https://maps.googleapis.com/maps/api/geocode/json", 
-//     keyUrl: "https://console.cloud.google.com/google/maps-apis" 
-//   },
-//   { 
-//     name: "SendGrid Email API", 
-//     category: "Email", 
-//     desc: "Cloud-based transactional and marketing email delivery infrastructure.", 
-//     endpoint: "https://api.sendgrid.com/v3/mail/send", 
-//     keyUrl: "https://signup.sendgrid.com/" 
-//   }
-// ];
-
-// function showToast(msg) {
-//   let toast = document.getElementById('toast');
-//   if(!toast) {
-//     toast = document.createElement('div');
-//     toast.id = 'toast';
-//     toast.className = 'toast';
-//     document.body.appendChild(toast);
-//   }
-//   toast.innerText = msg;
-//   toast.style.display = 'block';
-//   setTimeout(() => { toast.style.display = 'none'; }, 2500);
-// }
-
-// function copyEndpoint(url) {
-//   navigator.clipboard.writeText(url);
-//   showToast(`Copied Base Endpoint! 🔗`);
-// }
-
-// function renderAPIs(data) {
-//   const grid = document.getElementById('apiGrid');
-//   grid.innerHTML = '';
-
-//   data.forEach((api) => {
-//     grid.innerHTML += `
-//       <div class="api-card">
-//         <div>
-//           <div class="card-header">
-//             <span class="api-title">${api.name}</span>
-//             <span class="badge badge-paid">${api.category}</span>
-//           </div>
-//           <p class="api-desc">${api.desc}</p>
-
-//           <div class="key-box">
-//             <div class="key-text-wrapper">
-//               <span class="endpoint-display">${api.endpoint}</span>
-//             </div>
-//             <button class="btn-copy" onclick="copyEndpoint('${api.endpoint}')">📋 Copy Base Endpoint</button>
-//           </div>
-//         </div>
-        
-//         <div class="card-footer">
-//           <a href="${api.keyUrl}" target="_blank" class="btn-action" style="background: linear-gradient(135deg, #f59e0b, #d97706);">Get API Key 🔑</a>
-//         </div>
-//       </div>
-//     `;
-//   });
-// }
-
-// document.getElementById('searchInput').addEventListener('input', (e) => {
-//   const query = e.target.value.toLowerCase();
-//   const filtered = paidApis.filter(api => 
-//     api.name.toLowerCase().includes(query) || 
-//     api.category.toLowerCase().includes(query) ||
-//     api.desc.toLowerCase().includes(query)
-//   );
-//   renderAPIs(filtered);
-// });
-
-// renderAPIs(paidApis);
