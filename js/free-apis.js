@@ -1,133 +1,219 @@
-// const freeApis = [
-//   { 
-//     name: "Open-Meteo Weather", 
-//     category: "Weather", 
-//     desc: "Free weather forecast API for non-commercial use with no API key required.", 
-//     endpoint: "https://api.open-meteo.com/v1/forecast?latitude=28.61&longitude=77.20&current_weather=true", 
-//     url: "https://open-meteo.com/" 
-//   },
-//   { 
-//     name: "REST Countries", 
-//     category: "Data", 
-//     desc: "Get information about world countries via RESTful JSON endpoints.", 
-//     endpoint: "https://restcountries.com/v3.1/all", 
-//     url: "https://restcountries.com/" 
-//   },
-//   { 
-//     name: "JSONPlaceholder", 
-//     category: "Development", 
-//     desc: "Free fake REST API for testing and prototyping user & post data.", 
-//     endpoint: "https://jsonplaceholder.typicode.com/posts", 
-//     url: "https://jsonplaceholder.typicode.com/" 
-//   },
-//   { 
-//     name: "PokéAPI", 
-//     category: "Games", 
-//     desc: "All the Pokémon data you'll ever need in one place, easily accessible.", 
-//     endpoint: "https://pokeapi.co/api/v2/pokemon/ditto", 
-//     url: "https://pokeapi.co/" 
-//   },
-//   { 
-//     name: "CoinGecko Crypto API", 
-//     category: "Finance", 
-//     desc: "Comprehensive crypto market data including price, volume, and market cap.", 
-//     endpoint: "https://api.coingecko.com/api/v3/ping", 
-//     url: "https://www.coingecko.com/en/api" 
-//   },
-//   { 
-//     name: "NASA APOD API", 
-//     category: "Space", 
-//     desc: "Access Astronomy Picture of the Day with public demo key.", 
-//     endpoint: "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY", 
-//     url: "https://api.nasa.gov/" 
-//   }
-// ];
-
 const FREE_APIS = [
-  { name: "OpenWeatherMap", category: "Weather", desc: "Current weather, forecasts aur historical weather data duniya ke kisi bhi shehar ke liye.", url: "https://openweathermap.org/api", tag: "Free tier" },
-  { name: "REST Countries", category: "Data", desc: "Duniya ke har desh ki jaankari — flag, capital, currency, population, sab kuch.", url: "https://restcountries.com/", tag: "No key needed" },
-  { name: "JSONPlaceholder", category: "Testing", desc: "Fake REST API testing aur prototyping ke liye — posts, comments, users.", url: "https://jsonplaceholder.typicode.com/", tag: "No key needed" },
-  { name: "PokéAPI", category: "Fun", desc: "Har Pokémon ki complete details — stats, moves, evolutions.", url: "https://pokeapi.co/", tag: "No key needed" },
-  { name: "The Dog API", category: "Fun", desc: "Dog breeds ki images aur jaankari, random dog pictures.", url: "https://thedogapi.com/", tag: "Free tier" },
-  { name: "The Cat API", category: "Fun", desc: "Cat breeds ki images aur jaankari, random cat pictures.", url: "https://thecatapi.com/", tag: "Free tier" },
-  { name: "NewsAPI", category: "News", desc: "Duniya bhar ke news sources se headlines aur articles.", url: "https://newsapi.org/", tag: "Free tier" },
-  { name: "Quotable", category: "Fun", desc: "Motivational aur famous quotes ka bada collection.", url: "https://github.com/lukePeavey/quotable", tag: "No key needed" },
-  { name: "Open Trivia DB", category: "Fun", desc: "Quiz app banane ke liye trivia questions ka database.", url: "https://opentdb.com/", tag: "No key needed" },
-  { name: "CoinGecko", category: "Finance", desc: "Cryptocurrency prices, market cap, aur historical data.", url: "https://www.coingecko.com/en/api", tag: "Free tier" },
-  { name: "Exchangerate.host", category: "Finance", desc: "Real-time aur historical currency exchange rates.", url: "https://exchangerate.host/", tag: "No key needed" },
-  { name: "NASA Open APIs", category: "Science", desc: "Space images, Mars rover photos, asteroid data NASA se directly.", url: "https://api.nasa.gov/", tag: "Free tier" },
-  { name: "JokeAPI", category: "Fun", desc: "Programming, general aur dark jokes ka collection.", url: "https://sv443.net/jokeapi/v2/", tag: "No key needed" },
-  { name: "IP Geolocation (ipapi)", category: "Data", desc: "IP address se location, timezone, ISP jaankari nikalo.", url: "https://ipapi.co/", tag: "Free tier" },
-  { name: "GitHub REST API", category: "Developer", desc: "Repos, users, issues, commits — GitHub ka poora data.", url: "https://docs.github.com/en/rest", tag: "Free" },
-  { name: "Spoonacular (Free tier)", category: "Food", desc: "Recipes, ingredients aur nutrition information.", url: "https://spoonacular.com/food-api", tag: "Free tier" },
-  { name: "Unsplash API", category: "Media", desc: "High-quality free stock photos apne app me use karne ke liye.", url: "https://unsplash.com/developers", tag: "Free tier" },
-  { name: "Numbers API", category: "Fun", desc: "Kisi bhi number ke baare me interesting facts.", url: "http://numbersapi.com/", tag: "No key needed" },
-  { name: "Agify / Genderize / Nationalize", category: "Data", desc: "Naam se age, gender aur nationality predict karo.", url: "https://agify.io/", tag: "Free tier" },
-  { name: "Public APIs List (GitHub)", category: "Directory", desc: "1000+ free public APIs ki community-maintained list.", url: "https://github.com/public-apis/public-apis", tag: "No key needed" },
+  { 
+    name: "OpenWeatherMap", 
+    category: "Weather", 
+    desc: "Access current weather, forecasts, and historical weather data for any city worldwide.", 
+    url: "https://openweathermap.org/api", 
+    endpoint: "https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={YOUR_API_KEY}", 
+    tag: "Free tier" 
+  },
+  { 
+    name: "REST Countries", 
+    category: "Data", 
+    desc: "Get comprehensive information about countries—flags, capitals, currencies, population, and regions.", 
+    url: "https://restcountries.com/", 
+    endpoint: "https://restcountries.com/v3.1/all", 
+    tag: "No key needed" 
+  },
+  { 
+    name: "JSONPlaceholder", 
+    category: "Testing", 
+    desc: "Free fake REST API for testing and prototyping with mock posts, comments, users, and todos.", 
+    url: "https://jsonplaceholder.typicode.com/", 
+    endpoint: "https://jsonplaceholder.typicode.com/posts", 
+    tag: "No key needed" 
+  },
+  { 
+    name: "PokéAPI", 
+    category: "Fun", 
+    desc: "Complete Pokémon database containing details on stats, abilities, moves, types, and evolutions.", 
+    url: "https://pokeapi.co/", 
+    endpoint: "https://pokeapi.co/api/v2/pokemon/ditto", 
+    tag: "No key needed" 
+  },
+  { 
+    name: "The Dog API", 
+    category: "Fun", 
+    desc: "Fetch high-resolution dog images, breed information, and random puppy photos.", 
+    url: "https://thedogapi.com/", 
+    endpoint: "https://api.thedogapi.com/v1/images/search", 
+    tag: "Free tier" 
+  },
+  { 
+    name: "The Cat API", 
+    category: "Fun", 
+    desc: "Search, filter, and stream high-quality cat images, breed specs, and facts.", 
+    url: "https://thecatapi.com/", 
+    endpoint: "https://api.thecatapi.com/v1/images/search", 
+    tag: "Free tier" 
+  },
+  { 
+    name: "NewsAPI", 
+    category: "News", 
+    desc: "Fetch live news headlines and articles from thousands of worldwide sources and blogs.", 
+    url: "https://newsapi.org/", 
+    endpoint: "https://newsapi.org/v2/top-headlines?country=us&apiKey={YOUR_API_KEY}", 
+    tag: "Free tier" 
+  },
+  { 
+    name: "Quotable", 
+    category: "Fun", 
+    desc: "Open-source quote generator API offering famous quotes, author bios, and tags.", 
+    url: "https://github.com/lukePeavey/quotable", 
+    endpoint: "https://api.quotable.io/random", 
+    tag: "No key needed" 
+  },
+  { 
+    name: "Open Trivia DB", 
+    category: "Fun", 
+    desc: "Categorized trivia questions database perfect for building quiz and game applications.", 
+    url: "https://opentdb.com/", 
+    endpoint: "https://opentdb.com/api.php?amount=10", 
+    tag: "No key needed" 
+  },
+  { 
+    name: "CoinGecko", 
+    category: "Finance", 
+    desc: "Comprehensive cryptocurrency market data including live prices, volume, and trading pairs.", 
+    url: "https://www.coingecko.com/en/api", 
+    endpoint: "https://api.coingecko.com/api/v3/ping", 
+    tag: "Free tier" 
+  },
+  { 
+    name: "Exchangerate.host", 
+    category: "Finance", 
+    desc: "Real-time, historic, and multi-currency foreign exchange rates and conversion data.", 
+    url: "https://exchangerate.host/", 
+    endpoint: "https://api.exchangerate.host/latest", 
+    tag: "No key needed" 
+  },
+  { 
+    name: "NASA Open APIs", 
+    category: "Science", 
+    desc: "Explore space photography, Astronomy Picture of the Day (APOD), and Mars rover data.", 
+    url: "https://api.nasa.gov/", 
+    endpoint: "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY", 
+    tag: "Free tier" 
+  },
+  { 
+    name: "JokeAPI", 
+    category: "Fun", 
+    desc: "Multi-category joke generator serving programming, general, and miscellaneous humor.", 
+    url: "https://v2.jokeapi.dev/", 
+    endpoint: "https://v2.jokeapi.dev/joke/Any", 
+    tag: "No key needed" 
+  },
+  { 
+    name: "IP Geolocation (ipapi)", 
+    category: "Data", 
+    desc: "Identify IP address details including country, city, coordinates, timezone, and ISP.", 
+    url: "https://ipapi.co/", 
+    endpoint: "https://ipapi.co/json/", 
+    tag: "Free tier" 
+  },
+  { 
+    name: "GitHub REST API", 
+    category: "Developer", 
+    desc: "Interact programmatically with repositories, public user profiles, issues, and commits.", 
+    url: "https://docs.github.com/en/rest", 
+    endpoint: "https://api.github.com/users/octocat", 
+    tag: "Free" 
+  },
+  { 
+    name: "Spoonacular", 
+    category: "Food", 
+    desc: "Discover recipes, analyze nutrition facts, search ingredients, and generate meal plans.", 
+    url: "https://spoonacular.com/food-api", 
+    endpoint: "https://api.spoonacular.com/recipes/complexSearch?apiKey={YOUR_API_KEY}", 
+    tag: "Free tier" 
+  },
+  { 
+    name: "Unsplash API", 
+    category: "Media", 
+    desc: "Access high-resolution royalty-free photos and photography collections programmatically.", 
+    url: "https://unsplash.com/developers", 
+    endpoint: "https://api.unsplash.com/photos/?client_id={YOUR_ACCESS_KEY}", 
+    tag: "Free tier" 
+  },
+  { 
+    name: "Numbers API", 
+    category: "Fun", 
+    desc: "Returns interesting historical, mathematical, and trivia facts about any number.", 
+    url: "http://numbersapi.com/", 
+    endpoint: "http://numbersapi.com/random/math", 
+    tag: "No key needed" 
+  },
+  { 
+    name: "Agify / Genderize / Nationalize", 
+    category: "Data", 
+    desc: "Predict age, gender probability, and nationality based on a given first name.", 
+    url: "https://agify.io/", 
+    endpoint: "https://api.agify.io?name=michael", 
+    tag: "Free tier" 
+  },
+  { 
+    name: "Public APIs List (GitHub)", 
+    category: "Directory", 
+    desc: "A collective index listing thousands of free public APIs across various categories.", 
+    url: "https://github.com/public-apis/public-apis", 
+    endpoint: "https://api.publicapis.org/entries", 
+    tag: "No key needed" 
+  }
 ];
 
 
-// function showToast(msg) {
-//   let toast = document.getElementById('toast');
-//   if(!toast) {
-//     toast = document.createElement('div');
-//     toast.id = 'toast';
-//     toast.className = 'toast';
-//     document.body.appendChild(toast);
-//   }
-//   toast.innerText = msg;
-//   toast.style.display = 'block';
-//   setTimeout(() => { toast.style.display = 'none'; }, 2500);
-// }
 
-// function copyEndpoint(endpointUrl) {
-//   navigator.clipboard.writeText(endpointUrl);
-//   showToast(`Copied Endpoint URL! 🔗`);
-// }
-
-// function renderAPIs(data) {
-//   const grid = document.getElementById('apiGrid');
-//   grid.innerHTML = '';
+// 2. RENDER FUNCTION (jahan cards screen par bante hain)
+function renderAPIs(apisToRender) {
+  const apiGrid = document.getElementById('apiGrid');
+  if (!apiGrid) return;
   
-//   if (data.length === 0) {
-//     grid.innerHTML = `<p style="text-align:center; grid-column: 1/-1; color: var(--text-muted);">No Free APIs found matching your search.</p>`;
-//     return;
-//   }
+  apiGrid.innerHTML = '';
 
-//   data.forEach((api) => {
-//     grid.innerHTML += `
-//       <div class="api-card">
-//         <div>
-//           <div class="card-header">
-//             <span class="api-title">${api.name}</span>
-//             <span class="badge badge-free">${api.category}</span>
-//           </div>
-//           <p class="api-desc">${api.desc}</p>
-          
-//           <div class="key-box">
-//             <div class="key-text-wrapper">
-//               <span class="endpoint-display">${api.endpoint}</span>
-//             </div>
-//             <button class="btn-copy" onclick="copyEndpoint('${api.endpoint}')">📋 Copy Endpoint</button>
-//           </div>
-//         </div>
-        
-//         <div class="card-footer">
-//           <a href="${api.url}" target="_blank" class="btn-action">Docs / Portal ↗</a>
-//         </div>
-//       </div>
-//     `;
-//   });
-// }
+  apisToRender.forEach(api => {
+    const card = document.createElement('div');
+    card.className = 'api-card';
 
-// document.getElementById('searchInput').addEventListener('input', (e) => {
-//   const query = e.target.value.toLowerCase();
-//   const filtered = freeApis.filter(api => 
-//     api.name.toLowerCase().includes(query) || 
-//     api.category.toLowerCase().includes(query) ||
-//     api.desc.toLowerCase().includes(query)
-//   );
-//   renderAPIs(filtered);
-// });
+    // Copy Button check
+    const copyBtn = api.endpoint ? 
+      `<button class="copy-btn" onclick="copyEndpoint('${api.endpoint}', this)">📋 Copy Endpoint</button>` : '';
 
-// renderAPIs(freeApis);
+    card.innerHTML = `
+      <div class="api-card-top">
+        <div>
+          <span class="category-pill">${api.category}</span>
+          <h3>${api.name}</h3>
+        </div>
+        <span class="tag-pill ${api.tag.includes('Free') ? 'paid' : ''}">${api.tag}</span>
+      </div>
+      <p class="desc">${api.desc}</p>
+      <div class="api-card-footer">
+        <a href="${api.url}" target="_blank" class="link-btn">Docs dekhein &rarr;</a>
+        ${copyBtn}
+        <button class="shortlist-btn" onclick="toggleShortlist('${api.name}')">★</button>
+      </div>
+    `;
+
+    apiGrid.appendChild(card);
+  });
+}
+
+// 3. COPY FUNCTION (file ke end mein)
+function copyEndpoint(endpoint, btnElement) {
+  navigator.clipboard.writeText(endpoint).then(() => {
+    const originalText = btnElement.innerText;
+    btnElement.innerText = "Copied! ✓";
+    btnElement.classList.add("copied");
+    setTimeout(() => {
+      btnElement.innerText = originalText;
+      btnElement.classList.remove("copied");
+    }, 2000);
+  }).catch(err => {
+    console.error("Failed to copy endpoint: ", err);
+  });
+}
+
+// 4. INITIAL CALL
+document.addEventListener('DOMContentLoaded', () => {
+  renderAPIs(FREE_APIS);
+});
