@@ -393,3 +393,61 @@ footer{
   border-color: var(--teal);
   font-weight: 600;
 }
+
+/* Inline Endpoint Block UI */
+.endpoint-box {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 4px 6px 4px 10px;
+  margin: 12px 0 16px 0;
+  gap: 8px;
+}
+
+.endpoint-text {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #a0aec0;
+  font-family: monospace;
+  font-size: 0.78rem;
+  outline: none;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: text;
+}
+
+.endpoint-text::selection {
+  background: rgba(99, 102, 241, 0.4);
+  color: #fff;
+}
+
+.icon-copy-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e2e8f0;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.icon-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.icon-copy-btn.copied {
+  background: #10b981;
+  color: #fff;
+  border-color: #10b981;
+}
