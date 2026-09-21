@@ -250,3 +250,53 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPaidApis();
   renderAiApis();
 });
+
+// Copy ENV variable helper function
+function copyEnv(envVar, btnElement) {
+  navigator.clipboard.writeText(envVar).then(() => {
+    const originalText = btnElement.innerText;
+    btnElement.innerText = "Copied!";
+    btnElement.classList.add("copied");
+    setTimeout(() => {
+      btnElement.innerText = originalText;
+      btnElement.classList.remove("copied");
+    }, 2000);
+  }).catch(err => {
+    console.error("Failed to copy ENV variable:", err);
+  });
+}
+
+// Render AI Model Cards
+function renderAiCards() {
+  const container = document.getElementById("aiGrid");
+  if (!container || typeof AI_APIS === "undefined") return;
+
+  container.innerHTML = AI_APIS.map((api) => {
+    return `
+      <div class="api-card">
+        <div class="card-header">
+          <div class="color-badge" style="background-color: ${api.color};"></div>
+          <h3>${api.name}</h3>
+        </div>
+        <p class="card-desc">${api.desc}</p>
+        
+        <div class="env-box">
+          <span class="env-label">ENV:</span>
+          <code class="env-code">${api.env}</code>
+          <button class="copy-env-btn" onclick="copyEnv('${api.env}', this)">Copy</button>
+        </div>
+
+        <div class="card-footer">
+          <a href="${api.url}" target="_blank" rel="noopener noreferrer" class="portal-link">
+            Get API Key ↗
+          </a>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+// Global DOM Loaded initialization
+document.addEventListener("DOMContentLoaded", () => {
+  renderAiCards();
+});
