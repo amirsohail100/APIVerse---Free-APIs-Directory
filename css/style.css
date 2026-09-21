@@ -63,12 +63,14 @@ a:focus-visible, button:focus-visible, input:focus-visible{
 
 /* ---------- NAVBAR ---------- */
 .navbar{
-  position: sticky; top:0; z-index: 50;
+  position: sticky; top:16px; z-index: 50;
   display:flex; align-items:center; justify-content:space-between;
-  padding: 18px 6vw;
+  padding: 18px 4vw;
+  margin: 16px 24px 0 24px;
   background: rgba(11,14,26,0.7);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
 }
 .brand{
   display:flex; align-items:center; gap:10px;
