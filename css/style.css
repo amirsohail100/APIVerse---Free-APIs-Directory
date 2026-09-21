@@ -367,3 +367,29 @@ footer{
   .hero{ padding: 40px 5vw; }
   .section{ padding: 30px 5vw 70px; }
 }
+
+/* Copy Endpoint Button Styling */
+.copy-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-glass);
+  color: var(--text);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: rgba(63, 214, 197, 0.15);
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.copy-btn.copied {
+  background: var(--teal);
+  color: #05221d;
+  border-color: var(--teal);
+  font-weight: 600;
+}
