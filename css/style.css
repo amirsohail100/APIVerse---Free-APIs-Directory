@@ -451,3 +451,47 @@ footer{
   color: #fff;
   border-color: #10b981;
 }
+
+.env-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin: 12px 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.env-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-dim, #888);
+}
+
+.env-code {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #00f0ff;
+  flex-grow: 1;
+}
+
+.copy-env-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 3px 8px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-env-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.copy-env-btn.copied {
+  background: #10A37F;
+  border-color: #10A37F;
+}
