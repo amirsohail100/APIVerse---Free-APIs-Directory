@@ -67,8 +67,15 @@ function renderFreeApis(){
   }
 
   grid.innerHTML = filtered.map(api => {
-    const copyBtn = api.endpoint ? 
-      `<button class="copy-btn" onclick="copyEndpoint('${api.endpoint}', this)">📋 Copy Endpoint</button>` : '';
+    const endpointBlock = api.endpoint ? `
+      <div class="endpoint-box">
+        <input type="text" class="endpoint-text" value="${api.endpoint}" readonly onclick="this.select()" />
+        <button class="icon-copy-btn" onclick="copyEndpoint('${api.endpoint}', this)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span>Copy</span>
+        </button>
+      </div>
+    ` : '';
 
     return `
       <div class="api-card" data-name="${api.name}">
@@ -80,9 +87,11 @@ function renderFreeApis(){
           <span class="tag-pill ${api.tag.includes('Free') ? 'paid' : ''}">${api.tag}</span>
         </div>
         <p class="desc">${api.desc}</p>
+        
+        ${endpointBlock}
+
         <div class="api-card-footer">
           <a class="link-btn" href="${api.url}" target="_blank" rel="noopener">Docs dekhein &rarr;</a>
-          ${copyBtn}
           <button class="shortlist-btn ${isShortlisted(api.name) ? "saved" : ""}" data-name="${api.name}" title="Shortlist karein">
             ${isShortlisted(api.name) ? "&#9733;" : "&#9734;"}
           </button>
@@ -106,11 +115,12 @@ function renderFreeApis(){
 /* ---------- Copy Endpoint Logic ---------- */
 function copyEndpoint(endpoint, btnElement) {
   navigator.clipboard.writeText(endpoint).then(() => {
-    const originalText = btnElement.innerText;
-    btnElement.innerText = "Copied! ✓";
+    const span = btnElement.querySelector("span");
+    const originalText = span.innerText;
+    span.innerText = "Copied!";
     btnElement.classList.add("copied");
     setTimeout(() => {
-      btnElement.innerText = originalText;
+      span.innerText = originalText;
       btnElement.classList.remove("copied");
     }, 2000);
   }).catch(err => {
@@ -147,7 +157,7 @@ function setupFreeApisPage(){
   setupShortlistToggle();
 }
 
-/* ---------- Shortlist drawer (used on free-apis page) ---------- */
+/* ---------- Shortlist drawer ---------- */
 function renderShortlistDrawer(){
   const drawer = document.getElementById("shortlistDrawer");
   const countBadge = document.getElementById("shortlistCount");
