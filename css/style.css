@@ -452,46 +452,159 @@ footer{
   border-color: #10b981;
 }
 
-.env-box {
+/* Card Container Grid */
+.api-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+/* Card Styling with Free APIs Animation */
+.api-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              border-color 0.3s ease, 
+              box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Free APIs Hover Animation */
+.api-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 20px rgba(0, 240, 255, 0.15);
+}
+
+.card-header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 6px 10px;
-  border-radius: 6px;
-  margin: 12px 0;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
 
-.env-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--text-dim, #888);
+.card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.env-code {
-  font-family: monospace;
-  font-size: 0.85rem;
-  color: #00f0ff;
+.color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.card-header h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.star-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.star-btn:hover, .star-btn.active {
+  color: #ffd700;
+  transform: scale(1.15);
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  margin-bottom: 18px;
   flex-grow: 1;
 }
 
+/* ENV Box Styling */
+.env-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  transition: border-color 0.2s ease;
+}
+
+.api-card:hover .env-box {
+  border-color: rgba(0, 240, 255, 0.25);
+}
+
+.env-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.env-code {
+  font-family: 'Fira Code', monospace, sans-serif;
+  font-size: 0.82rem;
+  color: #00f0ff;
+  font-weight: 500;
+}
+
 .copy-env-btn {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: #fff;
-  padding: 3px 8px;
+  padding: 4px 10px;
   font-size: 0.75rem;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .copy-env-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: #00f0ff;
+  color: #000;
+  border-color: #00f0ff;
+  font-weight: 600;
 }
 
 .copy-env-btn.copied {
-  background: #10A37F;
-  border-color: #10A37F;
+  background: #10a37f;
+  border-color: #10a37f;
+  color: #fff;
+}
+
+.card-footer {
+  margin-top: auto;
+}
+
+.portal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #00f0ff;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.portal-btn:hover { 
+  color: #ffffff;
+  transform: translateX(4px);
 }
