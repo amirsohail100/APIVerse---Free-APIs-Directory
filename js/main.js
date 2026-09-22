@@ -72,7 +72,6 @@ function renderFreeApis(){
         <input type="text" class="endpoint-text" value="${api.endpoint}" readonly onclick="this.select()" />
         <button class="icon-copy-btn" onclick="copyEndpoint('${api.endpoint}', this)">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-          <span>Copy</span>
         </button>
       </div>
     ` : '';
@@ -221,6 +220,9 @@ function renderPaidApis(){
 }
 
 /* ---------- AI APIs page rendering ---------- */
+
+
+
 function renderAiApis(){
   const grid = document.getElementById("aiGrid");
   if(!grid) return;
@@ -233,6 +235,8 @@ function renderAiApis(){
     </div>
   `).join("");
   attachTilt(".api-card");
+
+  
 }
 
 /* ---------- Home page: 3D orbit nodes ---------- */
@@ -273,22 +277,23 @@ function renderAiCards() {
 
   container.innerHTML = AI_APIS.map((api) => {
     return `
-      <div class="api-card">
-        <div class="card-header">
-          <div class="color-badge" style="background-color: ${api.color};"></div>
-          <h3>${api.name}</h3>
+      <div class="api-card" data-name="${api.name}">
+        <div class="api-card-top">
+          <div>
+            <span class="category-pill">LLM</span>
+            <h3>${api.name}</h3>
+          </div>
         </div>
-        <p class="card-desc">${api.desc}</p>
-        
+        <p class="desc">${api.desc}</p>
         <div class="env-box">
           <span class="env-label">ENV:</span>
           <code class="env-code">${api.env}</code>
-          <button class="copy-env-btn" onclick="copyEnv('${api.env}', this)">Copy</button>
+          <button class="icon-copy-btn" onclick="copyEndpoint('${api.env}', this)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
         </div>
-
-        <div class="card-footer">
-          <a href="${api.url}" target="_blank" rel="noopener noreferrer" class="portal-link">
-            Get API Key ↗
+        <div class="api-card-footer">
+          <a class="btn btn-primary" style="padding:9px 18px; font-size:0.85rem;" href="${api.url}" target="_blank" rel="noopener">
+            Website par jaayein &rarr;
           </a>
         </div>
       </div>
