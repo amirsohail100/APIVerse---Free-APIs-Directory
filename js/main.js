@@ -279,9 +279,12 @@ function renderAiCards() {
     return `
       <div class="api-card" data-name="${api.name}">
         <div class="api-card-top">
-          <div>
-            <span class="category-pill">LLM</span>
-            <h3>${api.name}</h3>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            ${api.svg ? `<img src="${api.svg}" alt="${api.name}" class="api-logo" style="width:28px; height:28px; object-fit:contain;">` : ''}
+            <div>
+              <span class="category-pill">LLM</span>
+              <h3 style="margin: 0; font-size: 1.1rem;">${api.name}</h3>
+            </div>
           </div>
         </div>
         <p class="desc">${api.desc}</p>
@@ -289,7 +292,11 @@ function renderAiCards() {
           <span class="env-label">ENV:</span>
           <code class="env-code">${api.env}</code>
           <button class="icon-copy-btn" onclick="copyEndpoint('${api.env}', this)">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          </button>
         </div>
         <div class="api-card-footer">
           <a class="btn btn-primary" style="padding:9px 18px; font-size:0.85rem;" href="${api.url}" target="_blank" rel="noopener">
@@ -299,7 +306,10 @@ function renderAiCards() {
       </div>
     `;
   }).join("");
-  attachTilt(".api-card");
+
+  if (typeof attachTilt === "function") {
+    attachTilt(".api-card");
+  }
 }
 
 // Global DOM Loaded initialization
