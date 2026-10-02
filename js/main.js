@@ -299,6 +299,7 @@ function renderAiCards() {
       </div>
     `;
   }).join("");
+  attachTilt(".api-card");
 }
 
 // Global DOM Loaded initialization
