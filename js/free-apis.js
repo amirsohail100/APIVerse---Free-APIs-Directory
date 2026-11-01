@@ -28,6 +28,7 @@ const FREE_APIS = [
   { name: "Mockaroo API", category: "Testing", desc: "Generate up to 1,000 realistic mock records in JSON, CSV, SQL, or Excel format.", url: "https://www.mockaroo.com/", endpoint: "https://my.api.mockaroo.com/users.json?key={YOUR_API_KEY}", tag: "Free tier" },
 
   // --- ENTERTAINMENT & FUN ---
+  { name: "Bucketlist.nl Dream of the Day", category: "Fun", desc: "One daily travel or experience idea with an image and source URL. Dutch example data; no published numeric quota or SLA. Some linked experience pages contain labelled affiliate links.", url: "https://bucketlist.nl/brand/droom-van-de-dag.openapi.json", endpoint: "https://bucketlist.nl/api/droom-van-de-dag?scope=nederland&lang=nl", tag: "No key needed" },
   { name: "PokéAPI", category: "Fun", desc: "Complete Pokémon database containing details on stats, abilities, moves, and types.", url: "https://pokeapi.co/", endpoint: "https://pokeapi.co/api/v2/pokemon/ditto", tag: "No key needed" },
   { name: "The Dog API", category: "Fun", desc: "Fetch high-resolution dog images, breed information, and random puppy photos.", url: "https://thedogapi.com/", endpoint: "https://api.thedogapi.com/v1/images/search", tag: "Free tier" },
   { name: "The Cat API", category: "Fun", desc: "Search, filter, and stream high-quality cat images, breed specs, and facts.", url: "https://thecatapi.com/", endpoint: "https://api.thecatapi.com/v1/images/search", tag: "Free tier" },
